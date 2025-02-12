@@ -3,9 +3,10 @@ import pandas as pd
 from translation_utils import translate_text
 
 # 1. Set up your Azure Translator credentials
-SUBSCRIPTION_KEY = "ALh25HJXto38vZzaaDOA49n2eQoc2gEYrV12kr80jBDGYtEiOsZCJQQJ99BBAC8vTInXJ3w3AAAbACOG8z2s"
-ENDPOINT = "https://api.cognitive.microsofttranslator.com/" 
-REGION = "westus2" 
+SUBSCRIPTION_KEY = st.secrets["SUBSCRIPTION_KEY"]
+ENDPOINT = st.secrets["ENDPOINT"]
+REGION = st.secrets["REGION"]
+
 
 def main():
     # Change the title to a fun version referencing AMax
