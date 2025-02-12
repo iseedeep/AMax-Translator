@@ -57,12 +57,11 @@ def main():
             st.error(f"Oops, something went sideways: {e}")
 
 def to_excel_binary(df):
-    """Utility function to convert a DataFrame to Excel bytes for download."""
     from io import BytesIO
     output = BytesIO()
-    writer = pd.ExcelWriter(output, engine='openpyxl')
-    df.to_excel(writer, index=False)
-    writer.save()
+    # Use the context manager to automatically close the writer
+    with pd.ExcelWriter(output, engine='openpyxl') as writer:
+        df.to_excel(writer, index=False)
     return output.getvalue()
 
 if __name__ == "__main__":
